@@ -20,6 +20,7 @@ using osu.Game.Tournament.Screens.Ladder;
 using osu.Game.Tournament.Screens.MapPool;
 using osu.Game.Tournament.Screens.Schedule;
 using osu.Game.Tournament.Screens.Showcase;
+using osu.Game.Tournament.Screens.ShowcasePlayerPicker;
 using osu.Game.Tournament.Screens.TeamIntro;
 using osu.Game.Tournament.Screens.TeamWin;
 using osuTK;
@@ -78,6 +79,7 @@ namespace osu.Game.Tournament
                             Children = new Drawable[]
                             {
                                 new SetupScreen(),
+                                new ShowcasePlayerPicker(),
                                 new ScheduleScreen(),
                                 new LadderScreen(),
                                 new LadderEditorScreen(),
@@ -119,6 +121,7 @@ namespace osu.Game.Tournament
                             Children = new Drawable[]
                             {
                                 new ScreenButton(typeof(SetupScreen)) { Text = "Setup", RequestSelection = SetScreen },
+                                new ScreenButton(typeof(ShowcasePlayerPicker)) { Text = "PP", RequestSelection = SetScreen },
                                 new Separator(),
                                 new ScreenButton(typeof(TeamEditorScreen)) { Text = "Team Editor", RequestSelection = SetScreen },
                                 new ScreenButton(typeof(RoundEditorScreen)) { Text = "Rounds Editor", RequestSelection = SetScreen },
