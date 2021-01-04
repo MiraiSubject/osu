@@ -142,19 +142,14 @@ namespace osu.Game.Tournament.Screens.ShowcasePlayerPicker
             base.LoadComplete();
 
             loading.Show();
-
-            // if (API.IsLoggedIn)
-            // {
-            //     playingUsers.BindTo(spectatorStreaming.PlayingUsers);
-            //     playingUsers.BindCollectionChanged(onUsersChanged, true);
-            //     scrollFlow.ScrollToStart();
-            //     loading.Hide();
-            // }
         }
 
         public class PlayerRow : CompositeDrawable
         {
             public readonly User User;
+
+            [Resolved(canBeNull: true)]
+            private TournamentSceneManager sceneManager { get; set; }
 
             public PlayerRow(User user)
             {
@@ -188,7 +183,7 @@ namespace osu.Game.Tournament.Screens.ShowcasePlayerPicker
                                 Text = "Watch",
                                 Anchor = Anchor.TopCentre,
                                 Origin = Anchor.TopCentre,
-                                //Action = () => game?.PerformFromScreen(s => s.Push(new Spectator(User))),
+                                Action = () => sceneManager.User.Value = User,
                                 Enabled = { Value = User.Id != api.LocalUser.Value.Id }
                             }
                         }
