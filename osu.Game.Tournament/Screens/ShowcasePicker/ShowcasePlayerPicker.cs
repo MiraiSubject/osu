@@ -73,7 +73,7 @@ namespace osu.Game.Tournament.Screens.ShowcasePlayerPicker
                         }
                     }
                 },
-                loading = new LoadingLayer(userFlow),
+                loading = new LoadingLayer(true),
                 loadButton = new OsuButton
                 {
                     Origin = Anchor.Centre,
